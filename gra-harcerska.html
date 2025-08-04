@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Rola drużynowego</title>
+  <style>
+    body {
+      background-color: #f4f1ea;
+      font-family: 'Georgia', serif;
+      text-align: center;
+      padding: 30px;
+      color: #2e2b1f;
+    }
+    h1 {
+      color: #4a3f2b;
+      font-size: 2em;
+    }
+    input[type="text"] {
+      padding: 10px;
+      font-size: 1.1em;
+      width: 250px;
+      border: 2px solid #776e5e;
+      border-radius: 8px;
+      background-color: #fffaf4;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1.1em;
+      background-color: #a28c5e;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    .message {
+      margin-top: 30px;
+      font-size: 1.2em;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>Gra harcerska: Rola drużynowego w gromadzie zuchowej</h1>
+  <p>Wpisz hasło, aby poznać kolejną część przesłania:</p>
+  <input type="text" id="password" placeholder="Wpisz hasło...">
+  <button onclick="checkPassword()">Pokaż treść</button>
+
+  <div class="message" id="message"></div>
+
+  <script>
+    const messages = {
+      "wychowawca": `Najważniejszym harcerskim wychowawcą jest drużynowy. Dla realizacji celu naszej organizacji buduje on w drużynie program wychowawczy, indywidualnie odpowiadający na potrzeby członków drużyny, ale oparty na takich samych dla całej organizacji podstawach wychowawczych. To najpiękniejsza funkcja w ZHP, cieszę się, że jesteś na jej drodze.`,
+      "przyklad": `Osobisty przykład, stosowanie metody harcerskiej, wierność harcerskim ideałom w codziennym życiu czyni drużynowego świadomym swej roli wychowawcą. Rolą drużynowego gromady zuchowej jest ciągła praca nad sobą, systematycznie wracanie myślami do harcerskich idei i tak jak mówi nasza misja – wychowywanie młodego człowieka.`,
+      "lustro": `Warunkiem skuteczności metody harcerskiej jest osobisty przykład instruktora. Swoją postawą instruktor powinien dawać przykład osiągania wartości, którym służy harcerstwo, pokazywać, że życie według Prawa Harcerskiego może być źródłem radości. Dajesz przykład - a więc Twoje zuchy będą takie jak Ty. Chcesz gromady pełnej dzieci, energii, uśmiechu, kreatywności i odwagi? Na każdej zbiórce pamiętaj o uśmiechu, swojej energii, którą zarażasz, żywiołowości i entuzjazmu do zabawy; łatwy przepis na gromadę - wzajemność oddziaływań naprawdę działa!`,
+      "wodz": `Drużynowy w gromadzie zuchowej jest WODZEM - wodzem w zabawie, inspiruje ją, koordynuje jej przebieg, ale też aktywnie w niej uczestniczy. Uczenie poprzez zabawę, to właśnie robimy z zuchami. Nie stoimy z przybocznymi obok, ale jesteśmy częścią magicznego świata, gdzie wszystko może się zdarzyć - jeśli tylko mamy dobre nastawienie.`,
+      "przyboczni": `Drużynowy dba o rozwój przybocznych i wychowuje następcę. Pamięta o tym, że jego przyboczni również posiadają drogę harcerskiego rozwoju, zachęca ich do zdobywania stopni, naramienników, sprawności. W gromadzie daje im przestrzeń na podnoszenie swoich kompetencji. Czy Twój przyboczny posiada krzyż harcerski? Czy zdobywa stopień adekwatny do wieku? Czy rozwija się wędrowniczo? Czy realizuje próbę przewodnikowską? Pamiętaj, że jesteś także ich drużynowym i chcesz ich wychować. Zachęcam Cię do regularnych np. Co 2-miesięcznych spotkań tylko dla przybocznych, zorganizuj im grę, ciekawe spotkanie, zbiórkę, na której przekażesz część swojej tajemnej harcerskiej wiedzy i umiejętności. Zadbaj o ich rozwój.`,
+      "wolontariusz": `Pełniąc funkcję drużynowego gromady zuchowej i nie pobierając za swoją pracę wynagrodzenia, w myśl ustawy jesteś wolontariuszem. Wolontariusz to osoba pracująca ochotniczo i bez wynagrodzenia na zasadach określonych w ustawie o działalności pożytku publicznego i o wolontariacie. Jest to wspaniałe, bo całą swoją osobą pokazujesz, że pełnisz służbę. Jesteś gotowy do zostawienia tego świata lepszym niż zastałeś.`,
+      "wspolnota": `Jako drużynowy jesteś częścią większej wspólnoty: szczepu, hufca, chorągwi. Pamiętaj, by znaleźć w ciągu roku przestrzeń na zaangażowanie się w tę wspólnotę. Czerpiesz od niej dużo, również staraj się dawać, nie tylko przyszłych członków drużyn harcerskich. Ale także swój głos, opinię, czas, doświadczenie. To właśnie wspólnota pomoże Ci znaleźć miejsce zbiórek, środki finansowe, rozwój instruktorski, przestrzeń na samodoskonalenie się, przyszłych przybocznych, wsparcie w organizacji HALiZ i innych form.`,
+      "czas": `Drużynowy - uczeń/pracownik, pasjonat, członek rodziny.... Wiele ról pełnisz, niełatwo jest pogodzić wszystkie zobowiązania. Pamiętaj jednak, że żadnej z tych sfer nie możesz zaniedbać. Planuj odpowiednio swój kalendarz i zarządzaj płynnie czasem, by odnaleźć złoty środek w byciu drużynowym a innymi rolami, które pełnisz.`
+    };
+
+    function checkPassword() {
+      const input = document.getElementById("password").value.trim().toLowerCase();
+      const messageDiv = document.getElementById("message");
+      if (messages[input]) {
+        messageDiv.textContent = messages[input];
+      } else {
+        messageDiv.textContent = "Nieprawidłowe hasło. Spróbuj ponownie.";
+      }
+    }
+  </script>
+</body>
+</html>
